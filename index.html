@@ -7,7 +7,7 @@
 <title>Reactor Kill System — Process Flow Chart | GAIL PP PATA</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #4e342e; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #0d1117; color: #e6edf3; }
 
 .page-title {
 text-align: center; padding: 16px;
@@ -422,42 +422,108 @@ font-weight: 600; margin-left: 4px;
 </div>
 <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
+<!-- ── CORRECTED TYPE II SEQUENCE (SOP-023-R updated) ── -->
 <div class="block seq-block">
   <div class="seq-title">▶ ACTUATION SEQUENCE</div>
-  <div style="font-size:9.5px;color:#8b949e;margin-bottom:6px;">All Type III effects continue (all feeds stopped, motor off) EXCEPT turbine operation. ADDITIONALLY:</div>
+  <div style="font-size:9.5px;color:#8b949e;margin-bottom:6px;">All Type III effects continue (feeds, motor off) EXCEPT turbine operation. Turbine inlet valve closes. ADDITIONALLY:</div>
+
   <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span></div></div>
   <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
   <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Clear kill system logic</div></div>
-  <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">All feeds stopped</span> (same steps as Type III: catalyst, propylene, ethylene, hydrogen, nitrogen, T2, donor pumps, vent recovery, recycles, RB-4301 feeds)</div></div>
-  <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Shut OFF CGC Motor <span class="seq-valve">201-KA-4003</span></div></div>
-  <div class="key-diff-yellow">🔑 Turbine inlet valve <b>CLOSES</b> — Type III turbine operation TERMINATED<br>Both motor AND turbine are now OFF</div>
-  <div class="seq-item" style="margin-top:4px;"><div class="seq-num">6</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span></div></div>
+  <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">All feeds stopped</span> <span class="seq-valve">Catalyst (XZV-41306/41307/41406, FZV-41309) | Propylene (FZV-40101) | Ethylene (FZV-40202, XZV-40202) | H₂ (FZV-40103A/B, XZV-40103, XZV-01102/01104) | Nitrogen (FZV-41004, XZV-41009)</span></div></div>
+  <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">201-PA-1503A &amp; C</span></div></div>
+  <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
+  <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061/4063/4065</span></div></div>
+  <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
+  <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Close Propylene &amp; Liquid Recycle S/O Valves <span class="seq-valve">XZV-40159A/B</span> <span class="timer-badge">6s delay</span></div></div>
+  <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
+  <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
+
+  <div class="key-diff-yellow">🔑 Turbine inlet valve <b>CLOSES</b> — Turbine operation TERMINATED<br>Both CGC motor AND turbine are now OFF</div>
+
+  <div class="seq-item" style="margin-top:4px;"><div class="seq-num">12</div><div class="seq-text">Shut OFF CGC Motor <span class="seq-valve">201-KA-4003</span></div></div>
+
+  <!-- NEW STEP 13 — was missing in old chart -->
+  <div class="seq-item">
+    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">13</div>
+    <div class="seq-text"><span class="seq-highlight">Close Cycle Gas Valve</span> <span class="seq-valve">XZV-40405</span>
+      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+    </div>
+  </div>
+
+  <!-- CORRECTED STEP 14 — PIC-40207 overridden to MANUAL (not Auto) -->
+  <div class="seq-item">
+    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">14</div>
+    <div class="seq-text">
+      <span class="seq-highlight">Override Reactor Vent Controller</span> <span class="seq-valve">PIC-40207</span><br>
+      Operator commands <b style="color:#ffa198;">DISABLED</b> — <span class="seq-valve">XL-40207</span> indicates controller overridden<br>
+      Changes PIC-40207 to <b>manual</b> and preloads <span class="seq-valve">PV-40207</span> to predetermined setting (~20%)
+      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+    </div>
+  </div>
+
+  <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span> to Reactor 201-RB-4001 catalyst injection tube nozzle</div></div>
+
+  <div class="seq-item"><div class="seq-num">16</div><div class="seq-text"><span class="seq-highlight">Open Fast Vent Valve</span> <span class="seq-valve">XZV-40238</span> to flare — initiates <span class="timer-badge">5s timer</span></div></div>
 </div>
 <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
 <div class="modifier-box">
-  <div class="modifier-title">☣ Modifier C (CO) Injection</div>
+  <div class="modifier-title">☣ Modifier C (CO) Injection — Step 17</div>
   <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
   <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
   <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
   <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
   <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
+  <div style="margin-top:4px;font-size:9.5px;color:#8b949e;">Check pressure drop in CO cylinders after injection to confirm successful delivery (Step 21)</div>
 </div>
 <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
 <div class="block seq-block">
-  <div class="seq-title">▶ ADDITIONAL TYPE II SPECIFIC STEPS</div>
-  <div class="seq-item"><div class="seq-num">A</div><div class="seq-text">Auto 10-second ramp-down → close Reactor Bed Temp Control Valves <span class="seq-valve">TV-40404A/B</span></div></div>
-  <div class="seq-item"><div class="seq-num">B</div><div class="seq-text">Open Fast Vent Valve <span class="seq-valve">XZV-40238</span> → pressures downstream of PV-40207 to ≈10.60 kg/cm²g; PIC-40207 set to Auto at 10.60 setpoint <span class="timer-badge">5s after fast vent</span></div></div>
-  <div class="seq-item"><div class="seq-num">C</div><div class="seq-text">Close Propylene Purge Header S/O Valve <span class="seq-valve">PDZV-40231</span> <span class="timer-badge">30s delay</span></div></div>
-  <div class="seq-item"><div class="seq-num">D</div><div class="seq-text">Isolate all E nozzles except E8 &amp; E9; isolate major purge valves (turbine, reactor PSV, reactor blowdown, reactor vent to PPB)</div></div>
-  <div class="seq-item"><div class="seq-num">E</div><div class="seq-text">Monitor reactor temperatures to confirm reaction is stopped</div></div>
+  <div class="seq-title">▶ POST-INJECTION STEPS</div>
+
+  <div class="seq-item">
+    <div class="seq-num">18</div>
+    <div class="seq-text">Auto <span class="timer-badge">10s ramp-down</span> — close/open Reactor Bed Temp Control Valves <span class="seq-valve">TV-40404A/B</span></div>
+  </div>
+
+  <!-- CORRECTED Step 19 — PIC-40207 now switches to AUTO at 10.60 (5s after fast vent) -->
+  <div class="seq-item">
+    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">19</div>
+    <div class="seq-text">
+      <span class="timer-badge">5s after Fast Vent opens</span> — downstream of <span class="seq-valve">PV-40207</span> pressured to ≈10.60 kg/cm²g<br>
+      Logic changes <span class="seq-valve">PIC-40207</span> to <b style="color:#7ee787;">Auto</b> at 10.60 kg/cm²g setpoint<br>
+      <span style="font-size:9px;color:#8b949e;">On Type II reset: operator commands re-enabled; XL-40207 indicates controller released</span>
+      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+    </div>
+  </div>
+
+  <div class="seq-item">
+    <div class="seq-num">20</div>
+    <div class="seq-text">Close Propylene Purge Header S/O Valve <span class="seq-valve">PDZV-40231</span> <span class="timer-badge">30s after kill initiation</span></div>
+  </div>
+
+  <!-- NEW Step 21 — check CO cylinder pressure drop -->
+  <div class="seq-item">
+    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">21</div>
+    <div class="seq-text">
+      <span class="seq-highlight">Check for pressure drop in CO cylinders</span> — confirms Modifier C injection was successfully delivered
+      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+    </div>
+  </div>
+
+  <div class="seq-item"><div class="seq-num">22</div><div class="seq-text">Isolate all E nozzles except <b>E8 &amp; E9</b>; isolate major purge valves (turbine, reactor PSV, reactor blowdown, reactor vent to PPB)</div></div>
+  <div class="seq-item"><div class="seq-num">23</div><div class="seq-text">Monitor reactor temperatures to confirm polymerization reaction has fully stopped</div></div>
+
+  <div style="margin-top:6px;padding:6px 8px;background:#1a1a2e;border:1px solid #30363d;border-radius:4px;font-size:9.5px;color:#8b949e;">
+    <b style="color:#d29922;">⚠ FIELD CHECK:</b> After kill activation, field operator must verify kill system pressure is equalized at reactor pressure. If below reactor pressure → system may have malfunctioned → initiate field manual kill immediately and notify SIC.
+  </div>
 </div>
 <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
 <div class="outcome-block">
   <div class="outcome-title">✔ OUTCOME</div>
-  <div class="outcome-text">Reaction fully dead. No bed fluidization. Reactor depressured. Full evaluation required before restart. Start-up per SOP-007. PIC-40207 operator commands re-enabled on Type II reset.</div>
+  <div class="outcome-text">Reaction fully dead. No bed fluidization. Reactor depressured via fast vent to ≈10.60 kg/cm²g. Full evaluation by Shift Incharge required before restart. Start-up per SOP-007.</div>
 </div>
 ```
 
@@ -475,6 +541,7 @@ font-weight: 600; margin-left: 4px;
   <span><span style="color:#f85149;">■</span> Critical / No Disarm</span>
   <span><span style="color:#e3b341;">■</span> Time-Locked Disarm (Type III)</span>
   <span><span style="color:#388bfd;">■</span> Key Difference</span>
+  <span style="background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:1px 5px;font-size:9px;color:#e3b341;">NEW / CORRECTED</span> Updated in SOP-023-R
   <span style="color:#8b949e;">CGC = Cycle Gas Compressor &nbsp;|&nbsp; PPB = Product Purge Bin &nbsp;|&nbsp; HWC = Hardware Console &nbsp;|&nbsp; OSBL = Outside Battery Limit &nbsp;|&nbsp; SIC = Shift-in-Charge</span>
 </div>
 
