@@ -47,7 +47,7 @@ width: 2px; height: 16px; background: #484f58;
 margin: 0 auto 2px auto; position: relative;
 }
 .arrow-down::after {
-content: ‘▼’; position: absolute; bottom: -10px;
+content: '▼'; position: absolute; bottom: -10px;
 left: 50%; transform: translateX(-50%);
 color: #484f58; font-size: 10px;
 }
@@ -149,87 +149,85 @@ font-weight: 600; margin-left: 4px;
 
   <div class="kill-col">
 
+    <div class="block kill1-header">
+      <div><span class="kill-badge k1">TYPE I KILL</span></div>
+      <div class="kill-title">Catalyst Poisoning — Normal Compressor Speed</div>
+      <div class="kill-desc">Injects CO (Modifier C) into cycle gas line downstream of Cycle Gas Cooler. CGC continues running at normal speed driven by electric motor.</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block kill1-header">
-  <div><span class="kill-badge k1">TYPE I KILL</span></div>
-  <div class="kill-title">Catalyst Poisoning — Normal Compressor Speed</div>
-  <div class="kill-desc">Injects CO (Modifier C) into cycle gas line downstream of Cycle Gas Cooler. CGC continues running at normal speed driven by electric motor.</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block init-block">
+      <div class="section-label">Initiation Mode</div>
+      <span class="manual-auto-badge">MANUAL &amp; AUTOMATIC</span>
+      <div style="font-size:10.5px;color:#c9d1d9;">Select kill type via <b>HZS-40679</b>: Normal or Mini-Type 1 Kill<br>HZS-40651 must be in <b>AUTO</b> for automatic actuation</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block init-block">
-  <div class="section-label">Initiation Mode</div>
-  <span class="manual-auto-badge">MANUAL &amp; AUTOMATIC</span>
-  <div style="font-size:10.5px;color:#c9d1d9;">Select kill type via <b>HZS-40679</b>: Normal or Mini-Type 1 Kill<br>HZS-40651 must be in <b>AUTO</b> for automatic actuation</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block trigger-block k1b">
+      <div class="trigger-title t1c">⚡ TRIGGER CONDITIONS</div>
+      <div style="font-size:10px;color:#8b949e;margin-bottom:5px;">MANUAL: Place HZS-40651 in "TYPE I MANUAL KILL (K1)" + push PUSH TO START on HWC</div>
+      <div class="sep"></div>
+      <div style="font-size:10px;color:#8b949e;margin-bottom:4px;">AUTOMATIC (HZS-40651 in AUTO):</div>
+      <div class="trigger-item">
+        <div class="trigger-dot td1">a</div>
+        <div><span class="seq-highlight">High Reactor Bed Temperature</span><br>
+        <span class="seq-valve">TZAH-40526B or TZAHH-40522 &gt; 90°C</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td1">b</div>
+        <div><span class="seq-highlight">Signal B — CGC Protection Problems</span><br>
+        <span class="seq-valve">FIT-40332A/B/C: Low Seal Gas Flow ≤90 Nm³/hr (for 600s)<br>
+        FIT-40350A/B/C: High Primary Seal Gas Flare ≥22.5 Nm³/hr<br>
+        FIT-40351A/B/C: High Secondary Seal Gas Flare ≥1 Nm³/hr<br>
+        PIT-40380A/B/C: Low Lube Oil Press ≤1.3 kg/cm²g (5s)</span></div>
+      </div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block trigger-block k1b">
-  <div class="trigger-title t1c">⚡ TRIGGER CONDITIONS</div>
-  <div style="font-size:10px;color:#8b949e;margin-bottom:5px;">MANUAL: Place HZS-40651 in "TYPE I MANUAL KILL (K1)" + push PUSH TO START on HWC</div>
-  <div class="sep"></div>
-  <div style="font-size:10px;color:#8b949e;margin-bottom:4px;">AUTOMATIC (HZS-40651 in AUTO):</div>
-  <div class="trigger-item">
-    <div class="trigger-dot td1">a</div>
-    <div><span class="seq-highlight">High Reactor Bed Temperature</span><br>
-    <span class="seq-valve">TZAH-40526B or TZAHH-40522 &gt; 90°C</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td1">b</div>
-    <div><span class="seq-highlight">Signal B — CGC Protection Problems</span><br>
-    <span class="seq-valve">FIT-40332A/B/C: Low Seal Gas Flow ≤90 Nm³/hr (for 600s)<br>
-    FIT-40350A/B/C: High Primary Seal Gas Flare ≥22.5 Nm³/hr<br>
-    FIT-40351A/B/C: High Secondary Seal Gas Flare ≥1 Nm³/hr<br>
-    PIT-40380A/B/C: Low Lube Oil Press ≤1.3 kg/cm²g (5s)</span></div>
-  </div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block disarm-block">
+      <div class="disarm-title">✅ DISARM / ABORT</div>
+      <div class="disarm-text">YES — Place HZS-40651 in <b>DISARM</b> position at any time</div>
+      <div class="disarm-warn">⚠ For Signal B (auto): disarm only after triggering condition normalizes<br>
+      For temp condition (a): can disarm even WITHOUT normalization</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block disarm-block">
-  <div class="disarm-title">✅ DISARM / ABORT</div>
-  <div class="disarm-text">YES — Place HZS-40651 in <b>DISARM</b> position at any time</div>
-  <div class="disarm-warn">⚠ For Signal B (auto): disarm only after triggering condition normalizes<br>
-  For temp condition (a): can disarm even WITHOUT normalization</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block seq-block">
+      <div class="seq-title">▶ ACTUATION SEQUENCE</div>
+      <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span> sounds in DCS</div></div>
+      <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Backlight "TYPE 1 KILL" on handswitch HZS-40651</div></div>
+      <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
+      <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">Stop Catalyst Feed</span> <span class="seq-valve">XZV-41306, 41307, 41406 | close FZV-41309</span></div></div>
+      <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Close Propylene Feed Valve <span class="seq-valve">FZV-40101</span></div></div>
+      <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close Ethylene Feed Valve <span class="seq-valve">FZV-40202, XZV-40202</span></div></div>
+      <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Close H₂ Feed Block Valves <span class="seq-valve">FZV-40103A/B, XZV-40103, XZV-01102, XZV-01104</span></div></div>
+      <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Close Nitrogen Feed Valve <span class="seq-valve">FZV-41004, XZV-41009</span></div></div>
+      <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">201-PA-1503A &amp; C</span></div></div>
+      <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
+      <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061, PA-4063, PA-4065</span></div></div>
+      <div class="seq-item"><div class="seq-num">12</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
+      <div class="seq-item"><div class="seq-num">13</div><div class="seq-text">Close Propylene S/O Valve <span class="seq-valve">XZV-40159A</span> + Liquid Recycle <span class="seq-valve">XZV-40159B</span> <span class="timer-badge">6s delay</span></div></div>
+      <div class="seq-item"><div class="seq-num">14</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
+      <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
+      <div class="key-diff-red">🔑 CGC Motor continues at NORMAL speed — NO motor shutdown in Type I</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block seq-block">
-  <div class="seq-title">▶ ACTUATION SEQUENCE</div>
-  <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span> sounds in DCS</div></div>
-  <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Backlight "TYPE 1 KILL" on handswitch HZS-40651</div></div>
-  <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
-  <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">Stop Catalyst Feed</span> <span class="seq-valve">XZV-41306, 41307, 41406 | close FZV-41309</span></div></div>
-  <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Close Propylene Feed Valve <span class="seq-valve">FZV-40101</span></div></div>
-  <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close Ethylene Feed Valve <span class="seq-valve">FZV-40202, XZV-40202</span></div></div>
-  <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Close H₂ Feed Block Valves <span class="seq-valve">FZV-40103A/B, XZV-40103, XZV-01102, XZV-01104</span></div></div>
-  <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Close Nitrogen Feed Valve <span class="seq-valve">FZV-41004, XZV-41009</span></div></div>
-  <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">201-PA-1503A &amp; C</span></div></div>
-  <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
-  <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061, PA-4063, PA-4065</span></div></div>
-  <div class="seq-item"><div class="seq-num">12</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
-  <div class="seq-item"><div class="seq-num">13</div><div class="seq-text">Close Propylene S/O Valve <span class="seq-valve">XZV-40159A</span> + Liquid Recycle <span class="seq-valve">XZV-40159B</span> <span class="timer-badge">6s delay</span></div></div>
-  <div class="seq-item"><div class="seq-num">14</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
-  <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
-  <div class="key-diff-red">🔑 CGC Motor continues at NORMAL speed — NO motor shutdown in Type I</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="modifier-box">
+      <div class="modifier-title">☣ Modifier C (CO) Injection</div>
+      <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
+      <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
+      <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
+      <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
+      <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
+      <div style="margin-top:5px;font-size:9.5px;color:#8b949e;"><b>MINI-TYPE 1:</b> Uses XZV-40658 + orifice + pressure regulator at controlled flow for timer-set duration (operator adjustable, less CO than Normal)</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="modifier-box">
-  <div class="modifier-title">☣ Modifier C (CO) Injection</div>
-  <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
-  <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
-  <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
-  <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
-  <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
-  <div style="margin-top:5px;font-size:9.5px;color:#8b949e;"><b>MINI-TYPE 1:</b> Uses XZV-40658 + orifice + pressure regulator at controlled flow for timer-set duration (operator adjustable, less CO than Normal)</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="outcome-block">
-  <div class="outcome-title">✔ OUTCOME</div>
-  <div class="outcome-text">Polymerization reaction stopped. Bed remains fluidized by CGC at normal speed. Reset: HZS-40651 to DISARM/RESET → restart per SOP-007.</div>
-</div>
-
+    <div class="outcome-block">
+      <div class="outcome-title">✔ OUTCOME</div>
+      <div class="outcome-text">Polymerization reaction stopped. Bed remains fluidized by CGC at normal speed. Reset: HZS-40651 to DISARM/RESET → restart per SOP-007.</div>
+    </div>
 
   </div><!-- end type I -->
 
@@ -252,106 +250,201 @@ font-weight: 600; margin-left: 4px;
 
   <div class="kill-col">
 
-<div class="block kill3-header">
-  <div><span class="kill-badge k3">TYPE III KILL</span></div>
-  <div class="kill-title">Turbine-Driven Compressor Kill</div>
-  <div class="kill-desc">CO injected into cycle gas. CGC motor shut off; Expander Turbine (driven by cycle gas exhausted to flare) drives compressor at reduced speed to maintain bed fluidization.</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block kill3-header">
+      <div><span class="kill-badge k3">TYPE III KILL</span></div>
+      <div class="kill-title">Turbine-Driven Compressor Kill</div>
+      <div class="kill-desc">CO injected into cycle gas. CGC motor shut off; Expander Turbine (driven by cycle gas exhausted to flare) drives compressor at reduced speed to maintain bed fluidization.</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block init-block">
-  <div class="section-label">Initiation Mode</div>
-  <span class="manual-auto-badge">MANUAL &amp; AUTOMATIC</span>
-  <div style="font-size:10.5px;color:#c9d1d9;">HZS-40651 in <b>AUTO</b> + HZS-40657 in <b>NORMAL</b> for automatic actuation</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block init-block">
+      <div class="section-label">Initiation Mode</div>
+      <span class="manual-auto-badge">MANUAL &amp; AUTOMATIC</span>
+      <div style="font-size:10.5px;color:#c9d1d9;">HZS-40651 in <b>AUTO</b> + HZS-40657 in <b>NORMAL</b> for automatic actuation</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block trigger-block k3b">
-  <div class="trigger-title t3c">⚡ TRIGGER CONDITIONS</div>
-  <div style="font-size:10px;color:#8b949e;margin-bottom:5px;">MANUAL: Place HZS-40651 in "TYPE III MANUAL KILL" + push PUSH TO START on HWC</div>
-  <div class="sep"></div>
-  <div style="font-size:10px;color:#8b949e;margin-bottom:4px;">AUTOMATIC:</div>
-  <div class="trigger-item">
-    <div class="trigger-dot td3">a</div>
-    <div><span class="seq-highlight">Low Bed Weight + Low Cycle Gas Flow + High Pressure</span><br>
-    <span class="seq-valve">WZALL-40533 &lt;3900 kg AND FZAL-40205 &lt;360,000 Nm³/hr AND PZAL-40530B &gt;14.1 kg/cm²g</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td3">b</div>
-    <div><span class="seq-highlight">Low Bed Density + Low Flow + High Pressure</span><br>
-    <span class="seq-valve">PDZALL-40532 &lt;0.075 kg/cm²g AND flow &lt;360,000 Nm³/hr AND press &gt;14.1 kg/cm²g</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td3">c</div>
-    <div><span class="seq-highlight">Signal A</span> — Loss of power to CGC Motor <span class="seq-valve">201-KA-4003</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td3">d</div>
-    <div><span class="seq-highlight">HH Reactor Bed Temperature</span><br>
-    <span class="seq-valve">TZAHH-40526B &gt;125°C OR TZA3H-40522 &gt;125°C</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td3">e</div>
-    <div><span class="seq-highlight">Signal C</span> — CGC 2nd Level Machinery Problems<br>
-    <span class="seq-valve">Low-Low Lube Oil (PALL-40380) | HH Seal Gas Flare (FAHH-40350) | HH Discharge Temp (TAHH-40361) | HH Bearing Temps | Motor Winding Temps | XA-40331 Motor Electrical Failure | Low-Low Suction Press (PALL-40360) | HH Discharge Press (PAHH-40361)</span></div>
-  </div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block trigger-block k3b">
+      <div class="trigger-title t3c">⚡ TRIGGER CONDITIONS</div>
+      <div style="font-size:10px;color:#8b949e;margin-bottom:5px;">MANUAL: Place HZS-40651 in "TYPE III MANUAL KILL" + push PUSH TO START on HWC</div>
+      <div class="sep"></div>
+      <div style="font-size:10px;color:#8b949e;margin-bottom:4px;">AUTOMATIC:</div>
+      <div class="trigger-item">
+        <div class="trigger-dot td3">a</div>
+        <div><span class="seq-highlight">Low Bed Weight + Low Cycle Gas Flow + High Pressure</span><br>
+        <span class="seq-valve">WZALL-40533 &lt;3900 kg AND FZAL-40205 &lt;360,000 Nm³/hr AND PZAL-40530B &gt;14.1 kg/cm²g</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td3">b</div>
+        <div><span class="seq-highlight">Low Bed Density + Low Flow + High Pressure</span><br>
+        <span class="seq-valve">PDZALL-40532 &lt;0.075 kg/cm²g AND flow &lt;360,000 Nm³/hr AND press &gt;14.1 kg/cm²g</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td3">c</div>
+        <div><span class="seq-highlight">Signal A</span> — Loss of power to CGC Motor <span class="seq-valve">201-KA-4003</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td3">d</div>
+        <div><span class="seq-highlight">HH Reactor Bed Temperature</span><br>
+        <span class="seq-valve">TZAHH-40526B &gt;125°C OR TZA3H-40522 &gt;125°C</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td3">e</div>
+        <div><span class="seq-highlight">Signal C</span> — CGC 2nd Level Machinery Problems
+          <table style="width:100%;margin-top:5px;border-collapse:collapse;font-size:9px;">
+            <thead>
+              <tr style="background:#1c2128;border-bottom:1px solid #388bfd;">
+                <th style="text-align:left;padding:3px 5px;color:#79c0ff;font-weight:700;letter-spacing:0.5px;">TAG NO.</th>
+                <th style="text-align:left;padding:3px 5px;color:#79c0ff;font-weight:700;letter-spacing:0.5px;">DESCRIPTION</th>
+                <th style="text-align:center;padding:3px 5px;color:#79c0ff;font-weight:700;letter-spacing:0.5px;">DELAY</th>
+                <th style="text-align:right;padding:3px 5px;color:#79c0ff;font-weight:700;letter-spacing:0.5px;">TRIP VALUE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">PALL-40380A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">LL Lube Oil Supply Press.</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">1.0 kg/cm²g</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">FAHH-40350A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">HH Primary Seal Gas Flare Flow</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">28.5 Nm³/h</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;background:#1a1f2e;">
+                <td style="padding:3px 5px;color:#79c0ff;">FAH-40350A/B/C<br><span style="color:#d29922;font-style:italic;">AND</span><br>FAH-40351A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">H Primary Seal Gas Flare Flow<br><span style="color:#d29922;font-style:italic;">AND</span><br>H Secondary Seal Gas Flare Flow</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">22.5 Nm³/h<br><span style="color:#d29922;font-style:italic;">AND</span><br>1.0 Nm³/h</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">PALL-40360A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">LL Comp. Suction Press.</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">14 kg/cm²g</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">PAHH-40361A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">HH Comp. Discharge Press.</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">39 kg/cm²g</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40361A/B/C</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">HH Comp. Discharge Temp.</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">145°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">XA-40331</td>
+                <td style="padding:3px 5px;color:#c9d1d9;">Main Motor Electrical Failure</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">—</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40390A/B</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Journal BRG. UNCPLG</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">100°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40393A/B</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Journal BRG. CPLG</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">100°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40391A/B</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Thrust BRG. UNCPLG</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">105°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40392A/B/C</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Thrust BRG. CPLG</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">105°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40394A/B</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Motor BRG. Comp. Side</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">105°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40395A/B</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Motor BRG. Turbine Side</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">3 sec</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">105°C</td>
+              </tr>
+              <tr style="border-bottom:1px solid #21262d;">
+                <td style="padding:3px 5px;color:#79c0ff;">TAHH-40396A/C/E</td>
+                <td style="padding:3px 5px;color:#8b949e;font-style:italic;">Motor Winding U/V/W Temp</td>
+                <td style="padding:3px 5px;text-align:center;color:#8b949e;">—</td>
+                <td style="padding:3px 5px;text-align:right;color:#f78166;">155°C</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block" style="background:#1f1800;border:1px solid #e3b341;border-radius:8px;">
-  <div class="disarm-title" style="color:#e3b341;">⏱ DISARM — TIME-LOCKED</div>
-  <div style="font-size:10.5px;color:#e3b341;line-height:1.7;">
-    <b style="color:#f85149;">0 – 210s:</b> <span style="color:#f85149;">❌ CANNOT disarm</span><br>
-    <b style="color:#7ee787;">210s – 600s:</b> ✅ Can abort — put HZS-40651 in DISARM + press disarm/reset switch<br>
-    <b style="color:#f85149;">&gt;600s (10 min):</b> 🔴 AUTO escalates to TYPE II KILL<br>
-    <span style="font-size:9.5px;color:#8b949e;">Kill only fully disarmed after 210s of CO injection is complete</span>
-  </div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block" style="background:#1f1800;border:1px solid #e3b341;border-radius:8px;">
+      <div class="disarm-title" style="color:#e3b341;">⏱ DISARM — TIME-LOCKED</div>
+      <div style="font-size:10.5px;color:#e3b341;line-height:1.7;">
+        <b style="color:#f85149;">0 – 210s:</b> <span style="color:#f85149;">❌ CANNOT disarm</span><br>
+        <b style="color:#7ee787;">210s – 600s:</b> ✅ Can abort — put HZS-40651 in DISARM + press disarm/reset switch<br>
+        <b style="color:#f85149;">&gt;600s (10 min):</b> 🔴 AUTO escalates to TYPE II KILL<br>
+        <span style="font-size:9.5px;color:#8b949e;">Kill only fully disarmed after 210s of CO injection is complete</span>
+      </div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="block seq-block">
-  <div class="seq-title">▶ ACTUATION SEQUENCE</div>
-  <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span> sounds in DCS</div></div>
-  <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
-  <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Clear kill system logic</div></div>
-  <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">Stop Catalyst Feed</span> <span class="seq-valve">XZV-41306/41307/41406 | FZV-41309</span></div></div>
-  <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Close Propylene Feed <span class="seq-valve">FZV-40101</span></div></div>
-  <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close Ethylene Feed <span class="seq-valve">FZV-40202, XZV-40202</span></div></div>
-  <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Close H₂ Feed Valves <span class="seq-valve">FZV-40103A/B, XZV-40103, XZV-01102/01104</span></div></div>
-  <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Close Nitrogen Feed <span class="seq-valve">FZV-41004, XZV-41009</span></div></div>
-  <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">PA-1503A &amp; C</span></div></div>
-  <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
-  <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061/4063/4065</span></div></div>
-  <div class="seq-item"><div class="seq-num">12</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
-  <div class="seq-item"><div class="seq-num">13</div><div class="seq-text">Close Propylene &amp; Liquid Recycle S/O Valves <span class="seq-valve">XZV-40159A/B</span> <span class="timer-badge">6s delay</span></div></div>
-  <div class="seq-item"><div class="seq-num">14</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
-  <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
-  <div class="key-diff">🔑 <b>SHUT OFF CGC Motor</b> <span class="seq-valve">201-KA-4003</span> — KEY DIFFERENCE vs Type I</div>
-  <div class="seq-item" style="margin-top:4px;"><div class="seq-num">16</div><div class="seq-text"><span class="seq-highlight">Start Cycle Gas Turbine</span> <span class="seq-valve">201-KT-4003</span> → Open Turbine Supply Valve <span class="seq-valve">XZV-40307</span> → engages clutch<br><span style="color:#f85149;font-size:9.5px;">⚠ If turbine not rotating in 30s → XA-40307 alarm → Type 3 kill terminated → Type II initiated</span></div></div>
-  <div class="seq-item"><div class="seq-num">17</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span> (catalyst injection tube nozzle)</div></div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="block seq-block">
+      <div class="seq-title">▶ ACTUATION SEQUENCE</div>
+      <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span> sounds in DCS</div></div>
+      <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
+      <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Clear kill system logic</div></div>
+      <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">Stop Catalyst Feed</span> <span class="seq-valve">XZV-41306/41307/41406 | FZV-41309</span></div></div>
+      <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Close Propylene Feed <span class="seq-valve">FZV-40101</span></div></div>
+      <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close Ethylene Feed <span class="seq-valve">FZV-40202, XZV-40202</span></div></div>
+      <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Close H₂ Feed Valves <span class="seq-valve">FZV-40103A/B, XZV-40103, XZV-01102/01104</span></div></div>
+      <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Close Nitrogen Feed <span class="seq-valve">FZV-41004, XZV-41009</span></div></div>
+      <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">PA-1503A &amp; C</span></div></div>
+      <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
+      <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061/4063/4065</span></div></div>
+      <div class="seq-item"><div class="seq-num">12</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
+      <div class="seq-item"><div class="seq-num">13</div><div class="seq-text">Close Propylene &amp; Liquid Recycle S/O Valves <span class="seq-valve">XZV-40159A/B</span> <span class="timer-badge">6s delay</span></div></div>
+      <div class="seq-item"><div class="seq-num">14</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
+      <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
+      <div class="key-diff">🔑 <b>SHUT OFF CGC Motor</b> <span class="seq-valve">201-KA-4003</span> — KEY DIFFERENCE vs Type I</div>
+      <div class="seq-item" style="margin-top:4px;"><div class="seq-num">16</div><div class="seq-text"><span class="seq-highlight">Start Cycle Gas Turbine</span> <span class="seq-valve">201-KT-4003</span> → Open Turbine Supply Valve <span class="seq-valve">XZV-40307</span> → engages clutch<br><span style="color:#f85149;font-size:9.5px;">⚠ If turbine not rotating in 30s → XA-40307 alarm → Type 3 kill terminated → Type II initiated</span></div></div>
+      <div class="seq-item"><div class="seq-num">17</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span> (catalyst injection tube nozzle)</div></div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="modifier-box">
-  <div class="modifier-title">☣ Modifier C (CO) Injection</div>
-  <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
-  <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
-  <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
-  <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
-  <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
-  <div style="margin-top:4px;font-size:9.5px;color:#8b949e;">Requires 2 cylinders in-line + 2 standby full cylinders</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+    <div class="modifier-box">
+      <div class="modifier-title">☣ Modifier C (CO) Injection</div>
+      <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
+      <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
+      <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
+      <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
+      <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
+      <div style="margin-top:4px;font-size:9.5px;color:#8b949e;">Requires 2 cylinders in-line + 2 standby full cylinders</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-<div class="outcome-block">
-  <div class="outcome-title">✔ OUTCOME (if aborted in 210–600s)</div>
-  <div class="outcome-text">Bed fluidized by Expander Turbine at reduced speed. CO injection completes. Reset via HZS-40651 DISARM/RESET. Turbine stops → bed settles → restart per SOP-007.</div>
-</div>
-<div class="outcome-block" style="border-color:#f85149;background:#200c0c;margin-top:4px;">
-  <div class="outcome-title" style="color:#f85149;">🔴 NOT ABORTED IN 600s → ESCALATES TO TYPE II</div>
-  <div class="outcome-text" style="color:#ffa198;">Type III effects continue + Turbine inlet valve closes → Full Type II shutdown sequence takes over</div>
-</div>
-
+    <div class="outcome-block">
+      <div class="outcome-title">✔ OUTCOME (if aborted in 210–600s)</div>
+      <div class="outcome-text">Bed fluidized by Expander Turbine at reduced speed. CO injection completes. Reset via HZS-40651 DISARM/RESET. Turbine stops → bed settles → restart per SOP-007.</div>
+    </div>
+    <div class="outcome-block" style="border-color:#f85149;background:#200c0c;margin-top:4px;">
+      <div class="outcome-title" style="color:#f85149;">🔴 NOT ABORTED IN 600s → ESCALATES TO TYPE II</div>
+      <div class="outcome-text" style="color:#ffa198;">Type III effects continue + Turbine inlet valve closes → Full Type II shutdown sequence takes over</div>
+    </div>
 
   </div><!-- end type III -->
 
@@ -374,164 +467,161 @@ font-weight: 600; margin-left: 4px;
 
   <div class="kill-col">
 
-
-<div class="block kill2-header">
-  <div><span class="kill-badge k2">TYPE II KILL</span></div>
-  <div class="kill-title">Full Shutdown — Motor &amp; Turbine Both Stopped</div>
-  <div class="kill-desc">Most severe kill. Follows Type III or triggered directly by Signal D. Both CGC motor and Expander Turbine are shut down. Pressure vented to flare. No bed fluidization.</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="block init-block">
-  <div class="section-label">Initiation Mode</div>
-  <span class="auto-only-badge">AUTOMATIC ONLY</span>
-  <div style="font-size:10.5px;color:#c9d1d9;">HZS-40651 must be in AUTO. Cannot be initiated manually. Cannot be initiated directly by operator.</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="block trigger-block k2b">
-  <div class="trigger-title t2c">⚡ TRIGGER CONDITIONS</div>
-  <div class="trigger-item">
-    <div class="trigger-dot td2">1</div>
-    <div><span class="seq-highlight">Type III Kill NOT Aborted within 600s</span><br>
-    <span class="seq-valve">Auto escalation from Type III sequence</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td2">2</div>
-    <div><span class="seq-highlight">Type III Kill Failed to Start</span><br>
-    <span class="seq-valve">Turbine (201-KT-4003) not rotating within 30s of XZV-40307 opening → XA-40307 alarm</span></div>
-  </div>
-  <div class="trigger-item">
-    <div class="trigger-dot td2">3</div>
-    <div><span class="seq-highlight">Signal D — Machinery Emergency</span><br>
-    <span class="seq-valve">PALLL-40380A/B/C: LLL Lube Oil Press ≤0.5 kg/cm²g<br>
-    FAHHH-40350A/B/C: HHH Primary Seal Gas Flare ≥34.5 Nm³/hr<br>
-    TALL-40388A/B/C: LL Turbine Gas Flare Temp ≤-28°C<br>
-    HS-40341: Emergency Stop at LCP<br>
-    VAHHH-40390/40393A/B: HHH Shaft Vibration ≥100 μm (1s delay)<br>
-    ZAHHH-40392A/B: HHH Axial Displacement ≥±700 μm (1s delay)<br>
-    SAHHH-40310A/B/C: HHH Turbine Speed ≥3300 rpm</span></div>
-  </div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="block" style="background:#200c0c;border:1px solid #f85149;border-radius:8px;">
-  <div class="disarm-title" style="color:#f85149;">⛔ DISARM / ABORT</div>
-  <div style="font-size:10.5px;color:#ffa198;">NOT disarmable once initiated. Full shutdown proceeds to completion. No operator override.</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<!-- ── CORRECTED TYPE II SEQUENCE (SOP-023-R updated) ── -->
-<div class="block seq-block">
-  <div class="seq-title">▶ ACTUATION SEQUENCE</div>
-  <div style="font-size:9.5px;color:#8b949e;margin-bottom:6px;">All Type III effects continue (feeds, motor off) EXCEPT turbine operation. Turbine inlet valve closes. ADDITIONALLY:</div>
-
-  <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span></div></div>
-  <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
-  <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Clear kill system logic</div></div>
-  <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">All feeds stopped</span> <span class="seq-valve">Catalyst (XZV-41306/41307/41406, FZV-41309) | Propylene (FZV-40101) | Ethylene (FZV-40202, XZV-40202) | H₂ (FZV-40103A/B, XZV-40103, XZV-01102/01104) | Nitrogen (FZV-41004, XZV-41009)</span></div></div>
-  <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">201-PA-1503A &amp; C</span></div></div>
-  <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
-  <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061/4063/4065</span></div></div>
-  <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
-  <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Close Propylene &amp; Liquid Recycle S/O Valves <span class="seq-valve">XZV-40159A/B</span> <span class="timer-badge">6s delay</span></div></div>
-  <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
-  <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
-
-  <div class="key-diff-yellow">🔑 Turbine inlet valve <b>CLOSES</b> — Turbine operation TERMINATED<br>Both CGC motor AND turbine are now OFF</div>
-
-  <div class="seq-item" style="margin-top:4px;"><div class="seq-num">12</div><div class="seq-text">Shut OFF CGC Motor <span class="seq-valve">201-KA-4003</span></div></div>
-
-  <!-- NEW STEP 13 — was missing in old chart -->
-  <div class="seq-item">
-    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">13</div>
-    <div class="seq-text"><span class="seq-highlight">Close Cycle Gas Valve</span> <span class="seq-valve">XZV-40405</span>
-      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+    <div class="block kill2-header">
+      <div><span class="kill-badge k2">TYPE II KILL</span></div>
+      <div class="kill-title">Full Shutdown — Motor &amp; Turbine Both Stopped</div>
+      <div class="kill-desc">Most severe kill. Follows Type III or triggered directly by Signal D. Both CGC motor and Expander Turbine are shut down. Pressure vented to flare. No bed fluidization.</div>
     </div>
-  </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-  <!-- CORRECTED STEP 14 — PIC-40207 overridden to MANUAL (not Auto) -->
-  <div class="seq-item">
-    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">14</div>
-    <div class="seq-text">
-      <span class="seq-highlight">Override Reactor Vent Controller</span> <span class="seq-valve">PIC-40207</span><br>
-      Operator commands <b style="color:#ffa198;">DISABLED</b> — <span class="seq-valve">XL-40207</span> indicates controller overridden<br>
-      Changes PIC-40207 to <b>manual</b> and preloads <span class="seq-valve">PV-40207</span> to predetermined setting (~20%)
-      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+    <div class="block init-block">
+      <div class="section-label">Initiation Mode</div>
+      <span class="auto-only-badge">AUTOMATIC ONLY</span>
+      <div style="font-size:10.5px;color:#c9d1d9;">HZS-40651 must be in AUTO. Cannot be initiated manually. Cannot be initiated directly by operator.</div>
     </div>
-  </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-  <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span> to Reactor 201-RB-4001 catalyst injection tube nozzle</div></div>
-
-  <div class="seq-item"><div class="seq-num">16</div><div class="seq-text"><span class="seq-highlight">Open Fast Vent Valve</span> <span class="seq-valve">XZV-40238</span> to flare — initiates <span class="timer-badge">5s timer</span></div></div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="modifier-box">
-  <div class="modifier-title">☣ Modifier C (CO) Injection — Step 17</div>
-  <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
-  <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
-  <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
-  <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
-  <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
-  <div style="margin-top:4px;font-size:9.5px;color:#8b949e;">Check pressure drop in CO cylinders after injection to confirm successful delivery (Step 21)</div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
-
-<div class="block seq-block">
-  <div class="seq-title">▶ POST-INJECTION STEPS</div>
-
-  <div class="seq-item">
-    <div class="seq-num">18</div>
-    <div class="seq-text">Auto <span class="timer-badge">10s ramp-down</span> — close/open Reactor Bed Temp Control Valves <span class="seq-valve">TV-40404A/B</span></div>
-  </div>
-
-  <!-- CORRECTED Step 19 — PIC-40207 now switches to AUTO at 10.60 (5s after fast vent) -->
-  <div class="seq-item">
-    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">19</div>
-    <div class="seq-text">
-      <span class="timer-badge">5s after Fast Vent opens</span> — downstream of <span class="seq-valve">PV-40207</span> pressured to ≈10.60 kg/cm²g<br>
-      Logic changes <span class="seq-valve">PIC-40207</span> to <b style="color:#7ee787;">Auto</b> at 10.60 kg/cm²g setpoint<br>
-      <span style="font-size:9px;color:#8b949e;">On Type II reset: operator commands re-enabled; XL-40207 indicates controller released</span>
-      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+    <div class="block trigger-block k2b">
+      <div class="trigger-title t2c">⚡ TRIGGER CONDITIONS</div>
+      <div class="trigger-item">
+        <div class="trigger-dot td2">1</div>
+        <div><span class="seq-highlight">Type III Kill NOT Aborted within 600s</span><br>
+        <span class="seq-valve">Auto escalation from Type III sequence</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td2">2</div>
+        <div><span class="seq-highlight">Type III Kill Failed to Start</span><br>
+        <span class="seq-valve">Turbine (201-KT-4003) not rotating within 30s of XZV-40307 opening → XA-40307 alarm</span></div>
+      </div>
+      <div class="trigger-item">
+        <div class="trigger-dot td2">3</div>
+        <div><span class="seq-highlight">Signal D — Machinery Emergency</span><br>
+        <span class="seq-valve">PALLL-40380A/B/C: LLL Lube Oil Press ≤0.5 kg/cm²g<br>
+        FAHHH-40350A/B/C: HHH Primary Seal Gas Flare ≥34.5 Nm³/hr<br>
+        TALL-40388A/B/C: LL Turbine Gas Flare Temp ≤-28°C<br>
+        HS-40341: Emergency Stop at LCP<br>
+        VAHHH-40390/40393A/B: HHH Shaft Vibration ≥100 μm (1s delay)<br>
+        ZAHHH-40392A/B: HHH Axial Displacement ≥±700 μm (1s delay)<br>
+        SAHHH-40310A/B/C: HHH Turbine Speed ≥3300 rpm</span></div>
+      </div>
     </div>
-  </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-  <div class="seq-item">
-    <div class="seq-num">20</div>
-    <div class="seq-text">Close Propylene Purge Header S/O Valve <span class="seq-valve">PDZV-40231</span> <span class="timer-badge">30s after kill initiation</span></div>
-  </div>
-
-  <!-- NEW Step 21 — check CO cylinder pressure drop -->
-  <div class="seq-item">
-    <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">21</div>
-    <div class="seq-text">
-      <span class="seq-highlight">Check for pressure drop in CO cylinders</span> — confirms Modifier C injection was successfully delivered
-      <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+    <div class="block" style="background:#200c0c;border:1px solid #f85149;border-radius:8px;">
+      <div class="disarm-title" style="color:#f85149;">⛔ DISARM / ABORT</div>
+      <div style="font-size:10.5px;color:#ffa198;">NOT disarmable once initiated. Full shutdown proceeds to completion. No operator override.</div>
     </div>
-  </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
 
-  <div class="seq-item"><div class="seq-num">22</div><div class="seq-text">Isolate all E nozzles except <b>E8 &amp; E9</b>; isolate major purge valves (turbine, reactor PSV, reactor blowdown, reactor vent to PPB)</div></div>
-  <div class="seq-item"><div class="seq-num">23</div><div class="seq-text">Monitor reactor temperatures to confirm polymerization reaction has fully stopped</div></div>
+    <!-- ── CORRECTED TYPE II SEQUENCE (SOP-023-R updated) ── -->
+    <div class="block seq-block">
+      <div class="seq-title">▶ ACTUATION SEQUENCE</div>
+      <div style="font-size:9.5px;color:#8b949e;margin-bottom:6px;">All Type III effects continue (feeds, motor off) EXCEPT turbine operation. Turbine inlet valve closes. ADDITIONALLY:</div>
 
-  <div style="margin-top:6px;padding:6px 8px;background:#1a1a2e;border:1px solid #30363d;border-radius:4px;font-size:9.5px;color:#8b949e;">
-    <b style="color:#d29922;">⚠ FIELD CHECK:</b> After kill activation, field operator must verify kill system pressure is equalized at reactor pressure. If below reactor pressure → system may have malfunctioned → initiate field manual kill immediately and notify SIC.
-  </div>
-</div>
-<div class="arrow-down"></div><div class="arrow-spacer"></div>
+      <div class="seq-item"><div class="seq-num">1</div><div class="seq-text">Alarm: <span class="seq-highlight">"Kill System Activated"</span></div></div>
+      <div class="seq-item"><div class="seq-num">2</div><div class="seq-text">Close Flare Header Valve <span class="seq-valve">XZV-40651D</span></div></div>
+      <div class="seq-item"><div class="seq-num">3</div><div class="seq-text">Clear kill system logic</div></div>
+      <div class="seq-item"><div class="seq-num">4</div><div class="seq-text"><span class="seq-highlight">All feeds stopped</span> <span class="seq-valve">Catalyst (XZV-41306/41307/41406, FZV-41309) | Propylene (FZV-40101) | Ethylene (FZV-40202, XZV-40202) | H₂ (FZV-40103A/B, XZV-40103, XZV-01102/01104) | Nitrogen (FZV-41004, XZV-41009)</span></div></div>
+      <div class="seq-item"><div class="seq-num">5</div><div class="seq-text">Stop T2 Charge Pumps <span class="seq-valve">201-PA-1503A &amp; C</span></div></div>
+      <div class="seq-item"><div class="seq-num">6</div><div class="seq-text">Close T2 Feed Valve <span class="seq-valve">XZV-40171</span></div></div>
+      <div class="seq-item"><div class="seq-num">7</div><div class="seq-text">Stop Donor Charge Pumps <span class="seq-valve">PA-4061/4063/4065</span></div></div>
+      <div class="seq-item"><div class="seq-num">8</div><div class="seq-text">Shutdown Vent Recovery Compressor <span class="seq-valve">201-KA-5214</span></div></div>
+      <div class="seq-item"><div class="seq-num">9</div><div class="seq-text">Close Propylene &amp; Liquid Recycle S/O Valves <span class="seq-valve">XZV-40159A/B</span> <span class="timer-badge">6s delay</span></div></div>
+      <div class="seq-item"><div class="seq-num">10</div><div class="seq-text">Close Vent Valve to PPB <span class="seq-valve">FZV-40206</span></div></div>
+      <div class="seq-item"><div class="seq-num">11</div><div class="seq-text">Stop Reactor 201-RB-4301 feeds <span class="seq-valve">FZV-43127 | XZV-43159A/B | FZV-43103A/B | XZV-43103 | FZV-43102 | XZV-43102 | FZV-43170A</span></div></div>
 
-<div class="outcome-block">
-  <div class="outcome-title">✔ OUTCOME</div>
-  <div class="outcome-text">Reaction fully dead. No bed fluidization. Reactor depressured via fast vent to ≈10.60 kg/cm²g. Full evaluation by Shift Incharge required before restart. Start-up per SOP-007.</div>
-</div>
+      <div class="key-diff-yellow">🔑 Turbine inlet valve <b>CLOSES</b> — Turbine operation TERMINATED<br>Both CGC motor AND turbine are now OFF</div>
 
+      <div class="seq-item" style="margin-top:4px;"><div class="seq-num">12</div><div class="seq-text">Shut OFF CGC Motor <span class="seq-valve">201-KA-4003</span></div></div>
+
+      <!-- NEW STEP 13 — was missing in old chart -->
+      <div class="seq-item">
+        <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">13</div>
+        <div class="seq-text"><span class="seq-highlight">Close Cycle Gas Valve</span> <span class="seq-valve">XZV-40405</span>
+          <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+        </div>
+      </div>
+
+      <!-- CORRECTED STEP 14 — PIC-40207 overridden to MANUAL (not Auto) -->
+      <div class="seq-item">
+        <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">14</div>
+        <div class="seq-text">
+          <span class="seq-highlight">Override Reactor Vent Controller</span> <span class="seq-valve">PIC-40207</span><br>
+          Operator commands <b style="color:#ffa198;">DISABLED</b> — <span class="seq-valve">XL-40207</span> indicates controller overridden<br>
+          Changes PIC-40207 to <b>manual</b> and preloads <span class="seq-valve">PV-40207</span> to predetermined setting (~20%)
+          <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+        </div>
+      </div>
+
+      <div class="seq-item"><div class="seq-num">15</div><div class="seq-text">Close Propylene Purge Valve <span class="seq-valve">XZV-40540</span> to Reactor 201-RB-4001 catalyst injection tube nozzle</div></div>
+
+      <div class="seq-item"><div class="seq-num">16</div><div class="seq-text"><span class="seq-highlight">Open Fast Vent Valve</span> <span class="seq-valve">XZV-40238</span> to flare — initiates <span class="timer-badge">5s timer</span></div></div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
+
+    <div class="modifier-box">
+      <div class="modifier-title">☣ Modifier C (CO) Injection — Step 17</div>
+      <div class="modifier-step">▸ Open injection valve <span style="color:#79c0ff;">XZV-40651B</span></div>
+      <div class="modifier-step">▸ Open CO Cylinder Valve <span style="color:#79c0ff;">XZV-40651A</span></div>
+      <div class="modifier-step">▸ <span class="timer-badge">100 seconds</span> — CO poisons polymerization catalyst</div>
+      <div class="modifier-step">▸ Close XZV-40651A &amp; XZV-40651B</div>
+      <div class="modifier-step">▸ XZV-40651D opens when HZS-40651 in DISARM/RESET</div>
+      <div style="margin-top:4px;font-size:9.5px;color:#8b949e;">Check pressure drop in CO cylinders after injection to confirm successful delivery (Step 21)</div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
+
+    <div class="block seq-block">
+      <div class="seq-title">▶ POST-INJECTION STEPS</div>
+
+      <div class="seq-item">
+        <div class="seq-num">18</div>
+        <div class="seq-text">Auto <span class="timer-badge">10s ramp-down</span> — close/open Reactor Bed Temp Control Valves <span class="seq-valve">TV-40404A/B</span></div>
+      </div>
+
+      <!-- CORRECTED Step 19 — PIC-40207 now switches to AUTO at 10.60 (5s after fast vent) -->
+      <div class="seq-item">
+        <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">19</div>
+        <div class="seq-text">
+          <span class="timer-badge">5s after Fast Vent opens</span> — downstream of <span class="seq-valve">PV-40207</span> pressured to ≈10.60 kg/cm²g<br>
+          Logic changes <span class="seq-valve">PIC-40207</span> to <b style="color:#7ee787;">Auto</b> at 10.60 kg/cm²g setpoint<br>
+          <span style="font-size:9px;color:#8b949e;">On Type II reset: operator commands re-enabled; XL-40207 indicates controller released</span>
+          <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">CORRECTED</span>
+        </div>
+      </div>
+
+      <div class="seq-item">
+        <div class="seq-num">20</div>
+        <div class="seq-text">Close Propylene Purge Header S/O Valve <span class="seq-valve">PDZV-40231</span> <span class="timer-badge">30s after kill initiation</span></div>
+      </div>
+
+      <!-- NEW Step 21 — check CO cylinder pressure drop -->
+      <div class="seq-item">
+        <div class="seq-num" style="background:#1f1800;border-color:#d29922;color:#e3b341;">21</div>
+        <div class="seq-text">
+          <span class="seq-highlight">Check for pressure drop in CO cylinders</span> — confirms Modifier C injection was successfully delivered
+          <span style="display:inline-block;background:#1f1800;border:1px solid #d29922;border-radius:3px;padding:0 5px;font-size:8.5px;color:#e3b341;margin-left:4px;">NEW</span>
+        </div>
+      </div>
+
+      <div class="seq-item"><div class="seq-num">22</div><div class="seq-text">Isolate all E nozzles except <b>E8 &amp; E9</b>; isolate major purge valves (turbine, reactor PSV, reactor blowdown, reactor vent to PPB)</div></div>
+      <div class="seq-item"><div class="seq-num">23</div><div class="seq-text">Monitor reactor temperatures to confirm polymerization reaction has fully stopped</div></div>
+
+      <div style="margin-top:6px;padding:6px 8px;background:#1a1a2e;border:1px solid #30363d;border-radius:4px;font-size:9.5px;color:#8b949e;">
+        <b style="color:#d29922;">⚠ FIELD CHECK:</b> After kill activation, field operator must verify kill system pressure is equalized at reactor pressure. If below reactor pressure → system may have malfunctioned → initiate field manual kill immediately and notify SIC.
+      </div>
+    </div>
+    <div class="arrow-down"></div><div class="arrow-spacer"></div>
+
+    <div class="outcome-block">
+      <div class="outcome-title">✔ OUTCOME</div>
+      <div class="outcome-text">Reaction fully dead. No bed fluidization. Reactor depressured via fast vent to ≈10.60 kg/cm²g. Full evaluation by Shift Incharge required before restart. Start-up per SOP-007.</div>
+    </div>
 
   </div><!-- end type II -->
 
 </div><!-- end wrapper -->
 
 <!-- Legend -->
-
 <div class="legend">
   <b style="color:#f0f6fc;">LEGEND:</b>
   <span><span style="color:#3fb950;">■</span> Disarm / Outcome</span>
